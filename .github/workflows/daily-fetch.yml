@@ -1,0 +1,49 @@
+name: Daily RSS Fetch
+
+on:
+  schedule:
+    # 每天北京时间8点执行 (UTC 0:00)
+    - cron: '0 0 * * *'
+  workflow_dispatch: # 支持手动触发
+
+jobs:
+  fetch-and-deploy:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+          
+      - name: Install dependencies
+        run: |
+          cd backend
+          pip install -r requirements.txt
+          
+      - name: Fetch RSS and generate news
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+        run: |
+          cd backend
+          python -m app.main
+          
+      - name: Commit and push news
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add data/news/
+          git diff --quiet && git diff --staged --quiet || git commit -m "📰 Daily news update - $(date +'%Y-%m-%d')"
+          git push
+          
+      - name: Notify on failure
+        if: failure()
+        run: |
+          echo "❌ Daily fetch failed! Check the logs for details."
+          # 可以后续集成飞书通知

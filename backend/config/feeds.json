@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Paul Graham",
+    "url": "http://www.aaronsw.com/2002/feeds/pgessays.rss"
+  },
+  {
+    "name": "Daring Fireball",
+    "url": "https://daringfireball.net/feeds/main"
+  },
+  {
+    "name": "Simon Willison",
+    "url": "https://simonwillison.net/atom/everything/"
+  },
+  {
+    "name": "Coding Horror",
+    "url": "https://blog.codinghorror.com/rss/"
+  },
+  {
+    "name": "Joel on Software",
+    "url": "https://www.joelonsoftware.com/feed/"
+  },
+  {
+    "name": "Martin Fowler",
+    "url": "https://martinfowler.com/feed.atom"
+  },
+  {
+    "name": "KrebsonSecurity",
+    "url": "https://krebsonsecurity.com/feed/"
+  },
+  {
+    "name": "The Verge",
+    "url": "https://www.theverge.com/rss/index.xml"
+  },
+  {
+    "name": "Hacker News Front Page",
+    "url": "https://hnrss.org/frontpage"
+  },
+  {
+    "name": "GitHub Blog",
+    "url": "https://github.blog/feed/"
+  }
+]
