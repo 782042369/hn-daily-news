@@ -2,48 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Markdown样式 */
-.prose {
-  @apply text-gray-800 dark:text-gray-200;
+:root {
+  --primary: #f97316;
+  --bg-dark: #0f172a;
+  --bg-card: #1e293b;
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border: #334155;
 }
 
-.prose h1 {
-  @apply text-3xl font-bold mb-6 text-gray-900 dark:text-white;
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-primary);
+  line-height: 1.6;
 }
 
-.prose h2 {
-  @apply text-2xl font-bold mt-8 mb-4 text-gray-900 dark:text-white;
+/* Markdown 样式 */
+.markdown-body h1 {
+  @apply text-3xl font-bold mb-6 text-orange-500;
 }
 
-.prose p {
-  @apply mb-4 leading-relaxed;
+.markdown-body h2 {
+  @apply text-2xl font-semibold mt-8 mb-4 text-white border-b border-slate-700 pb-2;
 }
 
-.prose a {
-  @apply text-blue-500 hover:text-blue-600 dark:text-blue-400;
+.markdown-body h3 {
+  @apply text-xl font-semibold mt-6 mb-3 text-slate-200;
 }
 
-.prose hr {
-  @apply my-8 border-gray-200 dark:border-gray-700;
+.markdown-body p {
+  @apply mb-4 text-slate-300;
 }
 
-.prose blockquote {
-  @apply border-l-4 border-blue-500 pl-4 italic text-gray-600 dark:text-gray-400;
+.markdown-body a {
+  @apply text-orange-400 hover:text-orange-300 underline;
 }
 
-/* 滚动条样式 */
-::-webkit-scrollbar {
-  width: 8px;
+.markdown-body ul, .markdown-body ol {
+  @apply mb-4 pl-6;
 }
 
-::-webkit-scrollbar-track {
-  @apply bg-gray-100 dark:bg-gray-800;
+.markdown-body li {
+  @apply mb-2 text-slate-300;
 }
 
-::-webkit-scrollbar-thumb {
-  @apply bg-gray-300 dark:bg-gray-600 rounded-full;
+.markdown-body code {
+  @apply bg-slate-800 px-1.5 py-0.5 rounded text-sm font-mono text-orange-400;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  @apply bg-gray-400 dark:bg-gray-500;
+.markdown-body pre {
+  @apply bg-slate-800 p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.markdown-body pre code {
+  @apply bg-transparent p-0 text-slate-300;
+}
+
+.markdown-body blockquote {
+  @apply border-l-4 border-orange-500 pl-4 my-4 text-slate-400 italic;
+}
+
+.markdown-body hr {
+  @apply border-slate-700 my-8;
+}
+
+.markdown-body strong {
+  @apply text-white font-semibold;
+}
+
+/* 代码高亮 */
+.hljs {
+  background: transparent !important;
 }
